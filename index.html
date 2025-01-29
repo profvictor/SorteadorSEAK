@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteador de Números</title>
+    <style>
+        /* Estilização geral da página */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(90deg, #51AFF7, #0B2038);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+        }
+        /* Container principal */
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 80%;
+            margin-top: 20px;
+        }
+        /* Estilização dos sliders */
+        .slider-container {
+            margin: 15px 0;
+        }
+        input[type="range"] {
+            width: 100%;
+        }
+        /* Botão de sortear */
+        button {
+            background: #6d99ff;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        button:hover {
+            background: #f64615;
+            font-weight: bold;
+        }
+        /* Área de exibição dos resultados */
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            background: #ffdde1;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        #logo {
+            width: 100px; /* Ajuste o tamanho da imagem conforme necessário */
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 30px; /* Tamanho da fonte do título */
+            color: #333; /* Cor da fonte do título */
+            margin-bottom: 20px;
+            margin-top: 0px;
+        }
+
+        /* Estilização dos textos dos intervalos */
+        label {
+            font-size: 24px; /* Tamanho da fonte dos labels */
+            color: #0B2038; /* Cor da fonte dos labels */
+        }
+        #rangeValue, #quantityValue {
+        font-size: 24px; /* Tamanho da fonte dos valores */
+        color: #51AFF7; /* Cor da fonte dos valores */
+        font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Adicionando a imagem antes do título -->
+        <img id="logo" src="logo.jpg" alt="Logo"> 
+        <h2>Sorteador de Números</h2>
+        <!-- Slider para selecionar o intervalo máximo -->
+        <div class="slider-container">
+            <label>Pessoas: <span id="rangeValue">150</span></label>
+            <input type="range" id="rangeSlider" min="0" max="300" value="150" oninput="updateRange()">
+        </div>
+        <!-- Slider para selecionar a quantidade de números sorteados -->
+        <div class="slider-container">
+            <label>Prêmios: <span id="quantityValue">5</span></label>
+            <input type="range" id="quantitySlider" min="0" max="10" value="5" oninput="updateQuantity()">
+        </div>
+        <!-- Botão para iniciar o sorteio -->
+        <button onclick="sortear()">Sortear</button>
+        <!-- Área onde os números sorteados aparecerão -->
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        // Atualiza o valor do intervalo quando o slider é movido
+        function updateRange() {
+            document.getElementById('rangeValue').innerText = document.getElementById('rangeSlider').value;
+        }
+        // Atualiza o valor da quantidade de sorteios quando o slider é movido
+        function updateQuantity() {
+            document.getElementById('quantityValue').innerText = document.getElementById('quantitySlider').value;
+        }
+        // Função para sortear os números
+        function sortear() {
+            const max = parseInt(document.getElementById('rangeSlider').value); // Obtém o valor máximo
+            const quantidade = parseInt(document.getElementById('quantitySlider').value); // Obtém a quantidade de sorteios
+            let numerosSorteados = new Set(); // Conjunto para armazenar números únicos
+            
+            // Gera números aleatórios até atingir a quantidade desejada
+            while (numerosSorteados.size < quantidade) {
+                numerosSorteados.add(Math.floor(Math.random() * (max + 1)));
+            }
+            
+            // Exibe os números sorteados em ordem crescente
+            document.getElementById('result').innerText = Array.from(numerosSorteados).sort((a, b) => a - b).join(', ');
+        }
+    </script>
+</body>
+</html>
