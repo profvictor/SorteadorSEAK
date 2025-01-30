@@ -17,6 +17,17 @@
     <link rel="manifest" href="manifest.json">
    
     <title>Sorteador de Números</title>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js');
+          });
+        }
+        </script>
+    <script src="periodic-sync.js"></script>
+    <script src="install-pwa.js"></script>
+    
     <style>
         /* Estilização geral da página */
         body {

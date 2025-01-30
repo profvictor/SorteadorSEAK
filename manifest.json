@@ -1,8 +1,11 @@
 {
   "name": "Sorteador SEAK",
-  "display": "standalone",
+  "dir": "ltr",
+  "display": "fullscreen",
   "theme_color": "#6d99ff",
   "background_color": "#6d99ff",
+  "orientation": "portrait",
+  "scope": "/",
   "short_name": "Sorteador",
   "id": "com.github.profvictor.sorteadorseak",
   "description": "Sorteador de números para palestras da SEAK",
