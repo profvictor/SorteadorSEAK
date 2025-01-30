@@ -9,7 +9,7 @@
   "short_name": "Sorteador",
   "id": "sorteador",
   "description": "Sorteador de números para palestras da SEAK",
-  "start_url": "https://profvictor.github.io/SorteadorSEAK/",
+  "start_url": "/index.html",
   "categories": [
     "productivity"
   ],
