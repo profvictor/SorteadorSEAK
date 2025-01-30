@@ -1,5 +1,6 @@
 {
   "name": "Sorteador SEAK",
+  "display": "standalone",
   "theme_color": "#6d99ff",
   "background_color": "#6d99ff",
   "short_name": "Sorteador",
