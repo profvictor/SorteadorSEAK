@@ -115,12 +115,12 @@
         <!-- Slider para selecionar o intervalo máximo -->
         <div class="slider-container">
             <label>Pessoas: <span id="rangeValue">150</span></label>
-            <input type="range" id="rangeSlider" min="0" max="300" value="150" oninput="updateRange()">
+            <input type="range" id="rangeSlider" min="1" max="300" value="150" oninput="updateRange()">
         </div>
         <!-- Slider para selecionar a quantidade de números sorteados -->
         <div class="slider-container">
             <label>Prêmios: <span id="quantityValue">5</span></label>
-            <input type="range" id="quantitySlider" min="0" max="10" value="5" oninput="updateQuantity()">
+            <input type="range" id="quantitySlider" min="1" max="150" value="5" oninput="updateQuantity()">
         </div>
         <!-- Botão para iniciar o sorteio -->
         <button onclick="sortear()">Sortear</button>
@@ -130,7 +130,16 @@
     <script>
         // Atualiza o valor do intervalo quando o slider é movido
         function updateRange() {
-            document.getElementById('rangeValue').innerText = document.getElementById('rangeSlider').value;
+            const pessoas = parseInt(document.getElementById('rangeSlider').value);
+            document.getElementById('rangeValue').innerText = pessoas;
+            // Atualiza o máximo do slider de prêmios
+            const quantitySlider = document.getElementById('quantitySlider');
+            quantitySlider.max = pessoas;
+            // Se o valor atual de prêmios for maior que pessoas, ajusta
+            if (parseInt(quantitySlider.value) > pessoas) {
+                quantitySlider.value = pessoas;
+                document.getElementById('quantityValue').innerText = pessoas;
+            }
         }
         // Atualiza o valor da quantidade de sorteios quando o slider é movido
         function updateQuantity() {
@@ -140,13 +149,16 @@
         function sortear() {
             const max = parseInt(document.getElementById('rangeSlider').value); // Obtém o valor máximo
             const quantidade = parseInt(document.getElementById('quantitySlider').value); // Obtém a quantidade de sorteios
-            let numerosSorteados = new Set(); // Conjunto para armazenar números únicos
-            
-            // Gera números aleatórios até atingir a quantidade desejada
-            while (numerosSorteados.size < quantidade) {
-                numerosSorteados.add(Math.floor(Math.random() * (max + 1)));
+            if (quantidade > max) {
+                document.getElementById('result').innerText = 'O número de prêmios não pode ser maior que o número de pessoas!';
+                return;
             }
-            
+            let numerosSorteados = new Set(); // Conjunto para armazenar números únicos
+            // Gera números aleatórios até atingir a quantidade desejada, nunca sorteando zero
+            while (numerosSorteados.size < quantidade) {
+                let sorteado = Math.floor(Math.random() * max) + 1; // de 1 até max
+                numerosSorteados.add(sorteado);
+            }
             // Exibe os números sorteados em ordem crescente
             document.getElementById('result').innerText = Array.from(numerosSorteados).sort((a, b) => a - b).join(', ');
         }
