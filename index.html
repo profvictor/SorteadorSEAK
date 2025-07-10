@@ -26,92 +26,18 @@
         }
         </script>
     <script src="periodic-sync.js"></script>
+    <link rel="stylesheet" href="style.css">
     
     
-    <style>
-        /* Estilização geral da página */
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background: linear-gradient(90deg, #51AFF7, #0B2038);
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            height: 100vh;
-            margin: 0;
-        }
-        /* Container principal */
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 80%;
-            margin-top: 20px;
-        }
-        /* Estilização dos sliders */
-        .slider-container {
-            margin: 15px 0;
-        }
-        input[type="range"] {
-            width: 100%;
-        }
-        /* Botão de sortear */
-        button {
-            background: #6d99ff;
-            color: white;
-            border: none;
-            padding: 10px;
-            width: 100%;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 24px;
-        }
-        button:hover {
-            background: #f64615;
-            font-weight: bold;
-        }
-        /* Área de exibição dos resultados */
-        .result {
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
-            background: #ffdde1;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        #logo {
-            width: 100px; /* Ajuste o tamanho da imagem conforme necessário */
-            margin-bottom: 10px;
-        }
-        h2 {
-            font-size: 30px; /* Tamanho da fonte do título */
-            color: #333; /* Cor da fonte do título */
-            margin-bottom: 20px;
-            margin-top: 0px;
-        }
-
-        /* Estilização dos textos dos intervalos */
-        label {
-            font-size: 24px; /* Tamanho da fonte dos labels */
-            color: #0B2038; /* Cor da fonte dos labels */
-        }
-        #rangeValue, #quantityValue {
-        font-size: 24px; /* Tamanho da fonte dos valores */
-        color: #51AFF7; /* Cor da fonte dos valores */
-        font-weight: bold;
-        }
-
-    </style>
 </head>
 <body>
+    <section class="logo">
+        <img id="logo" src="logo.png" alt="Logo"> 
+    </section>
     <div class="container">
         <!-- Adicionando a imagem antes do título -->
-        <img id="logo" src="logo.jpg" alt="Logo"> 
-        <h2>Sorteador de Números</h2>
+        
+        <h2 class="gradient-title">Sorteador de Números</h2>
         <!-- Slider para selecionar o intervalo máximo -->
         <div class="slider-container">
             <label>Pessoas: <span id="rangeValue">150</span></label>

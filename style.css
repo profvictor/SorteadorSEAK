@@ -1,0 +1,100 @@
+/* Estilização geral da página */
+body {
+    min-height: 100vh;
+    height: 100dvh;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #51AFF7;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centraliza verticalmente */
+    margin: 0;
+}
+/* Container principal */
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    width: 80%;
+    margin: 20px auto 0 auto;
+}
+/* Estilização dos sliders */
+.slider-container {
+    margin: 15px 0;
+}
+input[type="range"] {
+    width: 100%;
+}
+/* Botão de sortear */
+button {
+    background: #6d99ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 50%;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 24px;
+}
+button:hover {
+    background: #f64615;
+    font-weight: bold;
+}
+/* Área de exibição dos resultados */
+.result {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    background: #ffdde1;
+    padding: 10px;
+    border-radius: 5px;
+}
+#logo {
+    width: 300px; /* Ajuste o tamanho da imagem conforme necessário */
+    margin-bottom: 10px;
+    border-radius: 50%; /* Garante que a imagem fique circular */
+    box-shadow: 0 0 30px 0 rgba(0,0,0,0.3); /* Sombra suave ao redor do círculo */
+    background: #fff; /* Fundo branco para eliminar transparência */
+    display: block;
+}
+h2 {
+    font-size: 30px; /* Tamanho da fonte do título */
+    color: #333; /* Cor da fonte do título */
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+/* Estilização dos textos dos intervalos */
+label {
+    font-size: 24px; /* Tamanho da fonte dos labels */
+    color: #0B2038; /* Cor da fonte dos labels */
+}
+#rangeValue, #quantityValue {
+    font-size: 24px; /* Tamanho da fonte dos valores */
+    color: #51AFF7; /* Cor da fonte dos valores */
+    font-weight: bold;
+}
+.gradient-title {
+    background: linear-gradient(270deg, #01d2f7, #f64615);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    animation: gradientMove 4s linear infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+} 
