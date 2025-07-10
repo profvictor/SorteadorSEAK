@@ -2,8 +2,8 @@
   "name": "Sorteador SEAK",
   "dir": "ltr",
   "display": "fullscreen",
-  "theme_color": "#0B2038",
-  "background_color": "#0B2038",
+  "theme_color": "#51AFF7",
+  "background_color": "#51AFF7",
   "orientation": "portrait",
   "scope": "/",
   "short_name": "Sorteador",
@@ -468,6 +468,12 @@
     {
       "src": "ios/1024.png",
       "sizes": "1024x1024"
+    },
+    {
+      "src": "/iconeSEAK.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
   
